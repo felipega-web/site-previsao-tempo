@@ -62,6 +62,14 @@ const fridayImg = document.getElementById('friday-img');
 const saturdayImg = document.getElementById('saturday-img');
 const sundayImg = document.getElementById('sunday-img');
 
+const today1 = document.getElementById('today-1');
+const today2 = document.getElementById('today-2');
+const today3 = document.getElementById('today-3');
+const today4 = document.getElementById('today-4');
+const today5 = document.getElementById('today-5');
+const today6 = document.getElementById('today-6');
+const today7 = document.getElementById('today-7');
+
 cityInput.addEventListener('keydown', async (event) => {
   if (event.key === 'Enter') {
     const city = cityInput.value;
@@ -87,7 +95,7 @@ cityInput.addEventListener('keydown', async (event) => {
           temperaturasIcones[Math.round(data.current.temperature_2m)][1]
         }`;
 
-        imgShowcase.style='width: 35rem; height: 35rem;';
+        imgShowcase.style = 'width: 35rem; height: 35rem;';
 
         sixAm.textContent = `${Math.round(data.hourly.temperature_2m[6])}°C`;
         nineAm.textContent = `${Math.round(data.hourly.temperature_2m[9])}°C`;
@@ -144,6 +152,41 @@ cityInput.addEventListener('keydown', async (event) => {
           data.current.wind_speed_10m
         )} <span class="kmh">km/h</span>`;
         uvIndex.textContent = `${Math.round(data.hourly.uv_index[12])}`;
+
+        const data1 = new Date(data.daily.time[0]);
+        today1.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data1)}`;
+
+        const data2 = new Date(data.daily.time[1]);
+        today2.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data2)}`;
+
+        const data3 = new Date(data.daily.time[2]);
+        today3.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data3)}`;
+
+        const data4 = new Date(data.daily.time[3]);
+        today4.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data4)}`;
+
+        const data5 = new Date(data.daily.time[4]);
+        today5.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data5)}`;
+
+        const data6 = new Date(data.daily.time[5]);
+        today6.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data6)}`;
+
+        const data7 = new Date(data.daily.time[6]);
+        today7.textContent = `${new Intl.DateTimeFormat('pt-BR', {
+          weekday: 'long',
+        }).format(data7)}`;
 
         mondayMax.textContent = `${Math.round(
           data.daily.temperature_2m_max[0]
@@ -231,8 +274,6 @@ cityInput.addEventListener('keydown', async (event) => {
         sundayImg.alt = `${
           temperaturasIcones[Math.round(data.daily.temperature_2m_max[6])][1]
         }`;
-
-        console.log(data);
       });
   }
 });
