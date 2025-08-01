@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clima de Hoje</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-column">
+        <nav class="navbar-container">
+          <img src="./images/logo.svg" alt="Clima de Hoje" />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="Procure por cidades"
+            class="custom-input"
+          />
+        </nav>
+
+        <div class="showcase-container">
+          <div class="showcase-text">
+            <h2 class="city-name">São Paulo</h2>
+            <p class="rain-chance">Chance de chuva: 5%</p>
+            <h2 class="temperature">30°C</h2>
+          </div>
+
+          <img
+            src="./images/sun-clouds.svg"
+            alt="sol com nuvens"
+            id="image-showcase"
+          />
+        </div>
+
+        <button onclick="scrollToLeft()" class="scroll-button-left">
+          ⬅️Voltar
+        </button>
+        <button onclick="scrollToRight()" class="scroll-button-right">
+          ➡️Avançar
+        </button>
+        <div class="hourly-forecast-container" id="carrossel">
+          <div class="hour-weather-item">
+            <p class="hour-text">06:00 AM</p>
+            <img
+              class="img-temperature"
+              src="./images/01-sun-cloud.svg"
+              alt="sol com nuvens"
+              id="img-hour-six-am"
+            />
+            <p class="hour-temperature" id="hour-six-am">24°C</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p class="hour-text">09:00 AM</p>
+            <img
+              class="img-temperature"
+              src="./images/02-sun-cloud.svg"
+              alt="sol com nuvens"
+              id="img-hour-nine-am"
+            />
+            <p class="hour-temperature" id="hour-nine-am">28°C</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p class="hour-text">12:00 PM</p>
+            <img class="img-temperature" src="./images/sun.svg" alt="sol" id="img-hour-twelve-pm" />
+            <p class="hour-temperature" id="hour-twelve-pm">30°C</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p class="hour-text">03:00 PM</p>
+            <img class="img-temperature" src="./images/sun.svg" alt="sol" id="img-hour-three-pm" />
+            <p class="hour-temperature" id="hour-three-pm">32°C</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p class="hour-text">06:00 PM</p>
+            <img
+              class="img-temperature"
+              src="./images/clouds.svg"
+              alt="nuvens"
+              id="img-hour-six-pm"
+            />
+            <p class="hour-temperature" id="hour-six-pm">27°C</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p class="hour-text">09:00 PM</p>
+            <img
+              class="img-temperature"
+              src="./images/moon-clouds.svg"
+              alt="lua com nuvens"
+              id="img-hour-nine-pm"
+            />
+            <p class="hour-temperature" id="hour-nine-pm">26°C</p>
+          </div>
+        </div>
+
+        <div class="weather-details-container">
+          <div class="weather-detail-item">
+            <p class="detail-title">Sensação térmica</p>
+            <div class="detail-content">
+              <img
+                class="detail-icon"
+                src="./images/temperature.svg"
+                alt="temperatura"
+              />
+              <p class="detail-text" id="feels-like">30°C</p>
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p class="detail-title">Chance de chuva</p>
+            <div class="detail-content">
+              <img
+                class="detail-icon"
+                src="./images/chance-chuva.svg"
+                alt="chances de chuva"
+              />
+              <p class="detail-text" id="rain-chance-2">0%</p>
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p class="detail-title">Vento</p>
+            <div class="detail-content">
+              <img class="detail-icon" src="./images/vento.svg" alt="vento" />
+              <p class="detail-text" id="wind-speed">
+                2 <span class="kmh">km/h</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p class="detail-title">Índice UV</p>
+            <div class="detail-content">
+              <img
+                class="detail-icon"
+                src="./images/indice-uv.svg"
+                alt="indice uv"
+              />
+              <p class="detail-text" id="uv-index">4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="weekly-forecast-container">
+          <div class="day-weather-item">
+            <p class="day-text">Segunda</p>
+            <img
+              class="day-temperature-img"
+              src="./images/01-sun-cloud.svg"
+              alt="Sol com nuvens"
+              id="monday-img"
+            />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="monday-max">29°C</p>
+              <p class="min-temperature-text" id="monday-min">23°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Terça</p>
+            <img class="day-temperature-img" src="./images/sun.svg" alt="Sol" id="tuesday-img" />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="tuesday-max">33°C</p>
+              <p class="min-temperature-text" id="tuesday-min">27°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Quarta</p>
+            <img class="day-temperature-img" src="./images/sun.svg" alt="Sol" id="wednesday-img" />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="wednesday-max">32°C</p>
+              <p class="min-temperature-text" id="wednesday-min">26°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Quinta</p>
+            <img
+              class="day-temperature-img"
+              src="./images/02-sun-cloud.svg"
+              alt="Sol com nuvens"
+              id="thursday-img"
+            />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="thursday-max">30°C</p>
+              <p class="min-temperature-text" id="thursday-min">24°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Sexta</p>
+            <img
+              class="day-temperature-img"
+              src="./images/clouds-2.svg"
+              alt="Nuvens"
+              id="friday-img"
+            />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="friday-max">28°C</p>
+              <p class="min-temperature-text" id="friday-min">22°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Sábado</p>
+            <img
+              class="day-temperature-img"
+              src="./images/rain.svg"
+              alt="Chuva"
+              id="saturday-img"
+            />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="saturday-max">26°C</p>
+              <p class="min-temperature-text" id="saturday-min">20°C</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p class="day-text">Domingo</p>
+            <img
+              class="day-temperature-img"
+              src="./images/02-sun-cloud.svg"
+              alt="Sol com nuvens"
+              id="sunday-img"
+            />
+            <div class="day-temperatures">
+              <p class="max-temperature-text" id="sunday-max">30°C</p>
+              <p class="min-temperature-text" id="sunday-min">25°C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
