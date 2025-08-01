@@ -13,6 +13,9 @@ function scrollToRight() {
     .scrollBy({ left: 100, behavior: 'smooth' });
 }
 
+window.scrollToLeft = scrollToLeft;
+window.scrollToRight = scrollToRight;
+
 const cityInput = document.getElementById('city');
 const cityName = document.getElementsByClassName('city-name');
 const rainChance = document.getElementsByClassName('rain-chance');
